@@ -13,7 +13,7 @@ function loadDatas() {
     var mail = document.getElementById('mailKH');
     var address = document.getElementById('addressKH');
     accounts.forEach((account) => {
-        if(account.user == sessionStorage.key(1)) {
+        if(account.user == sessionStorage.key(0)) {
             name.value = account.name;
             phone.value = account.phone;
             mail.value = account.mail;
