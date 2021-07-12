@@ -198,7 +198,7 @@ function checkDataAddress(data) {
             var accounts = localStorage.getItem('accounts') ? JSON.parse(localStorage.getItem('accounts')) : [] ;
             for(let i = 0 ; i< accounts.length ; i++){ //2
                 if(logOut){
-                    if(sessionStorage.length >1 && accounts[i].user == (sessionStorage.key(1))){
+                    if(sessionStorage.length >0 && accounts[i].user == (sessionStorage.key(0))){
                         alert('Đăng xuất thành công');
                         localStorage.removeItem('listTMP');
                         localStorage.removeItem('carts');
@@ -214,7 +214,7 @@ function checkDataAddress(data) {
 function loadData() {
     document.getElementById("countProduct").innerText = JSON.parse(localStorage.getItem('listTMP'));
     if (typeof(sessionStorage) !== "undefined") {
-		if(sessionStorage.length ==2) {
+		if(sessionStorage.length ==1) {
             document.getElementById('tableUser').style.display = "none";
             document.getElementById('btnLogIn').style.display = 'none';
             document.getElementById('btnLogOut').style.display = 'block';
