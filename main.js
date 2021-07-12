@@ -173,7 +173,7 @@ function checkDataAddress(data) {
                 if(user == account.user && pass == account.pass) {
                     alert('Đăng nhập thành công');
                     location.reload();
-                    if(account.user == sessionStorage.key(1)) {
+                    if(account.user == sessionStorage.key(0)) {
                         document.getElementById('tableUser').style.display = "none";
                         document.getElementById('btnLogIn').style.display = 'none';
                         document.getElementById('btnLogOut').style.display = 'block';
@@ -222,7 +222,7 @@ function loadData() {
             
             var accounts = localStorage.getItem('accounts') ? JSON.parse(localStorage.getItem('accounts')) : [] ;
                 for(let i = 0 ; i< accounts.length ; i++){
-                    if(accounts[i].user == sessionStorage.key(1)){
+                    if(accounts[i].user == sessionStorage.key(0)){
                         document.getElementById('showUser').innerHTML = `
                             <img src="./img/among-us-lol-7.jpg" width="15%">
                             <input type="button"  value="${accounts[i].user}" class="btn btn-dark" id="admin">`;  
