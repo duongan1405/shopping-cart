@@ -305,7 +305,7 @@ function loadData() {
             var tmp = 0;
 
             //Xét trường hợp đăng nhập mới mua được hàng
-            if(sessionStorage.length < 1) {
+            if(sessionStorage.length <= 0) {
                 alert('Phải đăng nhập thì mới mua hàng được');
             }else{
                 document.getElementById('cart').style.display = "block";
