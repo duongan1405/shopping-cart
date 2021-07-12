@@ -4,7 +4,7 @@ let listTMP = localStorage.getItem('listTMP') ? JSON.parse(localStorage.getItem(
 var showCart = document.getElementById('showCart');
 function loadCart() {
     var totalName = "";
-    var tmpMoney = "";
+    var tmpMoney = 0;
     var totalMoney = "";
     showCart.innerHTML = " ";
     if(carts.length > 0) {
@@ -34,7 +34,7 @@ function loadCart() {
         document.getElementById('nofiCart').innerHTML = "<h5>Chưa có gì trong giỏ hàng</h5>";
     
         }
-    
+        document.getElementById('total').innerHTML = `Số tiền dự kiến : ${totalMoney}`;
 }
 
 function onASC(indexCart) { //101
