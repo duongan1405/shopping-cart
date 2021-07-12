@@ -1,0 +1,32 @@
+#form{
+    border: solid 3px green; border-radius: 20px;
+}
+/* Số sản phẩm đã chọn */
+.count{
+    position: absolute;
+}
+
+/* Body Index */
+body{
+    background: papayawhip;
+}
+/* Thanh menu*/ 
+.opacity{
+    opacity: 80%;
+}
+.nav-link{
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+/* Khung Sản phẩm */
+.card
+{
+    box-shadow: 10px 5px 15px black;
+}
+
+.rounded-circle{
+    background: red;
+    width: 25px;
+    
+}

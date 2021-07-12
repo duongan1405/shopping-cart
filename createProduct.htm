@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="bootstrap-social-gh-pages/bootstrap-social.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">  Icon Social -->
+    <title>Final - CreateProduct</title>
+</head>
+<body>
+  
+  <div class="row" id="tableCreate">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3 ml-4" id="form" >
+          <h2 class="text-center text-primary font-weight-bold">Thêm Sản Phẩm</h2>
+        <form>
+            <div class="row">
+              <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <label>Mã Sản Phẩm</label>
+                <input type="text" class="form-control" id="inputCodeSP" placeholder="Nhập mã sản phẩm">
+                <p id="errCode" class="text-danger"></p>
+              </div>
+              <div class="form-group col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <label>Tên Sản Phẩm</label>
+                <input type="text" class="form-control" id="inputNameSP"placeholder="Nhập tên sản phẩm">
+                <p id="errName" class="text-danger"></p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <label>Số lượng sản phẩm</label>
+                    <input type="number" class="form-control" id="inputCount" placeholder="Nhập số lượng tồn">
+                    <p id="errCount" class="text-danger"></p>    
+                </div>
+                <div class="form-group col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                    <label>Nhà cung cấp</label>
+                    <input type="text" class="form-control" id="inputNCC" value="" placeholder="Nhập NCC">
+                    <p id="errNCC" class="text-danger"></p>
+                </div>  
+            </div>
+            
+            <div class="row">
+              <div class="form-group col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <label>Giá thành</label>
+                <input type="text" class="form-control" id="inputPrice" value="" placeholder="Nhập giá thành" >
+                <p id="errPrice" class="text-danger"></p>  
+              </div>
+              <div class="form-group col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                  <label>Ngày nhập hàng</label>
+                  <input type="date" class="form-control" id="inputDate" value="">
+                  <p id="errDate" class="text-danger"></p>
+              </div>  
+          </div>
+              
+          <div class="row">
+            <div class="form-group col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+              <label>Link ảnh</label> <br>  
+              <input type="file" id="imgSP" >
+              <p id="errIMG" class="text-danger"></p>
+              <div class="form-group">
+                <input type="checkbox" name="" id="checkForm"> <label>Tôi đã đồng ý các điều khoản tạo sản phẩm</label>
+                <p id="errForm" class="text-danger"></p>
+              </div>
+              <input type="button" style="display: block;" id="create" class="btn btn-primary mb-2" onclick="createProduct();" value="Tạo SP"></input>
+              <input type="button" style="display: none;" id="edit" class="btn btn-primary mb-2" onclick="createProduct();" value="Edit SP"></input>
+            </div>
+            <div class="form-group col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 text-right text-center" id="showIMG">
+              
+            </div>  
+        </div>    
+            
+            
+          </form>
+      </div>
+      <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 text-center">
+        <h2 class="mt-3  text-primary">Địa chỉ Shop</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.1117105509047!2d106.62474821488466!3d10.725866492355864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752de0f1f046cb%3A0x7846dedb673ac817!2zODAgxJDGsOG7nW5nIEhvw6BuZyBOZ8OibiwgUGjGsOG7nW5nIDE2LCBRdeG6rW4gOCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1625747262117!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>  
+    <div class=" mt-3"  id="tableProduct">
+      <h2 class="text-center text-primary font-weight-bold">Danh Sách Sản Phẩm</h2>
+      <table align="center" class=" mb-2 text-center font-weight-bold"  border="2" style="width: 100%;" >
+        <thead>
+        <tr>
+            <td>MSSP</td>
+            <td>Tên Sản Phẩm</td>
+            <td>Số lượng</td>
+            <td>Giá thành</td>
+            <td>Ngày nhập hàng</td>
+            <td>Nhà cung cấp</td>
+            <td>Tùy Chọn</td>
+            
+        </tr>
+    </thead>
+    <tbody id="resultProduct">
+  
+    </tbody>
+    </table>
+    </div>
+</body>
+<script src="./mainProduct.js"></script>
+</html>
