@@ -2,7 +2,7 @@ var listProduct = [
     {
         code : 101,
         name : 'Giày Nike Mercurial SUPERFLY',
-        img : '../img/giay-1.jpg',
+        img : './img/giay-1.jpg',
         price : '2200000',
         color : 'Xanh lá',
         form : 'Phù hợp form chân bè',
@@ -14,7 +14,7 @@ var listProduct = [
     {
         code : 102,
         name : 'Giày Nike Mercurial VAPOR',
-        img : '../img/giay-1.jpg',
+        img : './img/giay-1.jpg',
         price : '2200000',
         color :'Vàng',
         form : 'Phù hợp form chân thon/chân bè',
@@ -26,7 +26,7 @@ var listProduct = [
     {
         code : 103,
         name : 'Giày Nike PhanTom GT ACADEMY',
-        img : '../img/giay-2.jpg',
+        img : './img/giay-2.jpg',
         price : '2200000',
         color :'Xám',
         form : 'Phù hợp form chân thon/chân bè',
@@ -38,7 +38,7 @@ var listProduct = [
     {
         code : 104,
         name : 'Giày Adidas Copa',
-        img : '../img/giay-3.jpg',
+        img : './img/giay-3.jpg',
         price : '1800000',
         color :'Xanh dương',
         form : 'Phù hợp form chân bè',
@@ -50,7 +50,7 @@ var listProduct = [
     {
         code : 105,
         name : 'Giày Adidas Nemeziz Messi',
-        img : '../img/giay-3.jpg',
+        img : './img/giay-3.jpg',
         price : '3000000',
         color :'Vàng',
         form : 'Phù hợp form chân bè,chân thon',
@@ -62,7 +62,7 @@ var listProduct = [
     {
         code : 106,
         name : 'Giày Asics DS',
-        img : '../img/giay-4.jpg',
+        img : './img/giay-4.jpg',
         price : '1800000',
         color :'Đen/Trắng',
         form : 'Phù hợp form chân bè.',
@@ -74,7 +74,7 @@ var listProduct = [
     {
         code : 107,
         name : 'Giày Asics ToQue 6 TF',
-        img : '../img/giay-4.jpg',
+        img : './img/giay-4.jpg',
         price : '1500000',
         color :'Đỏ/Đen',
         form : 'Phù hợp chân thon',
