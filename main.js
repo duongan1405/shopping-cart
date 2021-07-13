@@ -1,3 +1,107 @@
+var listProduct = [
+    {
+        code : 101,
+        name : 'Giày Nike Mercurial SUPERFLY',
+        img : './img/giay-1.jpg',
+        price : '2200000',
+        color : 'Xanh lá',
+        form : 'Phù hợp form chân bè',
+        size : '39| 40| 41| 42| 43',
+        material : 'Da tự nhiên có cấu trúc đẹp',
+        weight : '250gram/chiếc',
+        quality : 'Tốt'
+    },
+    {
+        code : 102,
+        name : 'Giày Nike Mercurial VAPOR',
+        img : './img/giay-1.jpg',
+        price : '2200000',
+        color :'Vàng',
+        form : 'Phù hợp form chân thon/chân bè',
+        size : '39| 40| 41| 42| 43',
+        material : 'Da tổng hợp mới mềm mại',
+        weight : '198 gram/chiếc',
+        quality : 'Tốt'
+    },
+    {
+        code : 103,
+        name : 'Giày Nike PhanTom GT ACADEMY',
+        img : './img/giay-2.jpg',
+        price : '2200000',
+        color :'Xám',
+        form : 'Phù hợp form chân thon/chân bè',
+        size : '39| 40| 41| 42| 43',
+        material : 'Da tổng hợp mới mềm mại',
+        weight : '245 gram/chiếc',
+        quality : 'Rất Tốt'
+    },
+    {
+        code : 104,
+        name : 'Giày Adidas Copa',
+        img : './img/giay-3.jpg',
+        price : '1800000',
+        color :'Xanh dương',
+        form : 'Phù hợp form chân bè',
+        size : '39| 40| 41| 42| 43',
+        material : 'Da tự nhiên có cấu trúc Fusionskin.',
+        weight : '250 gram/chiếc',
+        quality : 'Tốt'
+    },
+    {
+        code : 105,
+        name : 'Giày Adidas Nemeziz Messi',
+        img : './img/giay-3.jpg',
+        price : '3000000',
+        color :'Vàng',
+        form : 'Phù hợp form chân bè,chân thon',
+        size : '39| 40| 41| 42| 43',
+        material : 'Da tổng hợp',
+        weight : '250 gram/chiếc',
+        quality : 'Tốt'
+    },
+    {
+        code : 106,
+        name : 'Giày Asics DS',
+        img : './img/giay-4.jpg',
+        price : '1800000',
+        color :'Đen/Trắng',
+        form : 'Phù hợp form chân bè.',
+        size : '39| 40| 41| 42| 43',
+        material : 'Da tổng hợp độc quyền.',
+        weight : '250 gram/chiếc',
+        quality : 'Tốt'
+    },
+    {
+        code : 107,
+        name : 'Giày Asics ToQue 6 TF',
+        img : './img/giay-4.jpg',
+        price : '1500000',
+        color :'Đỏ/Đen',
+        form : 'Phù hợp chân thon',
+        size : '39| 40| 41| 42| 43',
+        material : 'Da tổng hợp mỏng nhẹ',
+        weight : '250 gram/chiếc',
+        quality : 'Tốt'
+    }
+];
+var products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+if(products.length==0) {
+    listProduct.forEach((product) => {
+        products.push({
+            code : product.code,
+            name : product.name,
+            img : product.img,
+            price :product.price ,
+            color :product.color,
+            form :product.form ,
+            size :product.size,
+            material : product.material,
+            weight : product.weight,
+            quality :product.quality 
+        });
+    });
+    localStorage.setItem('products',JSON.stringify(products));
+}
 
 //Hiển thị bảng đăng ký , đăng nhập
 var tableCreateUser = document.querySelector('#btnCreateUser');
@@ -233,38 +337,34 @@ function loadData() {
 }
     
     //Show Sản phẩm 
-    var products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [] ;
-    var showProduct = document.getElementById('showProduct');
+        var products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [] ;
+        var showProduct = document.getElementById('showProduct');
     showProduct.innerHTML =  "";
-    if(products.length > 0){
         for(let i = 0 ; i<products.length ; i++) {
+            
             showProduct.innerHTML += `
-            <div class="col-12 col-12 col-md-6 col-lg-4 col-xl-4 text-center mt-3">
+            <div class="col-12 col-12 col-md-6 col-lg-3 col-xl-3 text-center mt-3">
                 <div class="card text-center"" style="width: 18rem;">
-                    <img src="img/${products[i].img}" class="card-img-top" >
+                    <img src="${products[i].img}" class="card-img-top" >
                   <div class="card-body">
                         <h4 class="card-title">${products[i].name}</h4>
-                        <p class="card-text">${(products[i].price).replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.')} vnđ</p>
-                        <input data-toggle="modal" data-target="#m_sign" type="button" class="btn btn-warning text-light font-weight-bolder " value="Chi tiết" onclick="onDetail(${products[i].code});">
+                        <h5 class="card-text">${((products[i].price)).replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.')} vnđ</h5>
+                        <input data-toggle="modal" data-target="#onDetail" type="button" class="btn btn-warning text-light font-weight-bolder " value="Chi tiết" onclick="onDetail(${i});">
                         <input type="button" class="btn btn-success font-weight-bold " value="Bỏ vào giỏ hàng" onclick="onCart(${products[i].code});">
                   </div>
                 </div>
             </div>
         `
         };
-           
-        
-    }else {
-        document.getElementById("countProduct").innerText = "";
-        document.getElementById('listProduct').innerHTML ="Không có Sản phẩm";
-    }   
+
         var detailProduct = document.getElementById('detailProduct'); 
         //Chi tiết sản phẩm
         function onDetail(index) {
+            var products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [] ;
             detailProduct.innerHTML = "";
-            products.forEach((product) => {
-                if(product.code == index) {
-                    detailProduct.innerHTML = `<div class="modal fade" id="m_sign">
+            for(let i = 0 ; i<products.length ; i++){
+                if(i == index) {
+                    detailProduct.innerHTML = `<div class="modal fade" id="onDetail">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <header class="modal-header bg-warning justify-content-center">
@@ -272,40 +372,59 @@ function loadData() {
                               <h3 class="modal-title text-light">Chi Tiết Sản Phẩm</h3>
                            
                             </header>
-                            <article class="modal-body">
-                              <div class="row">
-                                <div class="col-12 text-center"><img  src="img/${product.img}" style="width: 200px; height: 250px;"> </div>
-                                <div class="col-6"> 
-                                    <p> Tên sản phẩm </p>
-                                    <p>Chất liệu </p>
-                                    <p>Trọng lượng<p>
-                                    <p> Form giầy </p>
-                                    <p> Size</p>
-                                </div>
-                                <div class="col-6"> 
-                                    <p> ${product.name} </p>
-                                    <p> Da tự nhiên có cấu trúc đẹp </p>
-                                    <p>250 gram/chiếc<p>
-                                    <p> Phù hợp form chân bè </p>
-                                    <p> 39 | 40 | 41 | 42 | 43</p>
-                                </div>
-                              </div>
+                            <div class="modal-body">
+                              
+                                <div class="col-12 text-center"><img  src="${products[i].img}" style="width: 200px; height: 250px;"> </div>
+                                <table>
+                                <tr>
+                                    <td width="50%"><label> Tên sản phẩm </label></td>
+                                    <td><label> ${products[i].name} </label> <td>
+                                </tr>
+                                <tr>
+                                    <td  width="50%"><label> Chất liệu </label></td>
+                                    <td><label> ${products[i].material} </label> <td>
+                                </tr>
+                                <tr>
+                                    <td  width="50%"><label> Màu sắc </label></td>
+                                    <td><label> ${products[i].color} </label> <td>
+                                </tr>
+                                <tr>
+                                    <td  width="50%"><label> Trọng lượng </label></td>
+                                    <td><label> ${products[i].weight} </label> <td>
+                                </tr>
+                                <tr>
+                                    <td  width="50%"><label> Form giầy </label></td>
+                                    <td><label> ${products[i].form} </label> <td>
+                                </tr>
+                                <tr>
+                                    <td  width="50%"><label> Size </label></td>
+                                    <td><label> ${products[i].size} </label> <td>
+                                </tr>
+                                <tr>
+                                    <td  width="50%"><label> Chất lượng </label></td>
+                                    <td><label>  ${products[i].quality} </label> <td>
+                                </tr>
+                                </table>
+                               
+                            </div>
                         </div>
                     </div>
                   </div>      `; 
                 }
-            });
+            }
+                
+           
         }
         //Mua sản phẩm 
         var sum = 0;
           function onCart(index){ 
+            let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [] ;  
             let listTMP = localStorage.getItem('listTMP') ? JSON.parse(localStorage.getItem('listTMP')) : [] ;
-            let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [] ;
             let carts = localStorage.getItem('carts') ? JSON.parse(localStorage.getItem('carts')) : [] ;
             var tmp = 0;
 
             //Xét trường hợp đăng nhập mới mua được hàng
-            if(sessionStorage.length == 0) {
+            if(sessionStorage.length ==0) {
                 alert('Phải đăng nhập thì mới mua hàng được');
             }else{
                 document.getElementById('cart').style.display = "block";

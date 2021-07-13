@@ -12,7 +12,7 @@ function loadCart() {
             var total = (carts[i].price * carts[i].count);
             showCart.innerHTML += 
             `<tr>
-            <td><img  src="img/${carts[i].img}" style="width: 150px; height: 170px;"></td>
+            <td><img  src="${carts[i].img}" style="width: 150px; height: 170px;"></td>
             <td>${carts[i].name}</td>
             <td>
             <input class="" type="button" value="-" onclick="onDESC(${carts[i].code},${i});">
@@ -34,7 +34,7 @@ function loadCart() {
         document.getElementById('nofiCart').innerHTML = "<h5>Chưa có gì trong giỏ hàng</h5>";
     
         }
-        document.getElementById('total').innerHTML = `Số tiền dự kiến : ${totalMoney}`;
+    document.getElementById('total').innerHTML = `Số tiền dự kiến : ${totalMoney}`;
 }
 
 function onASC(indexCart) { //101
