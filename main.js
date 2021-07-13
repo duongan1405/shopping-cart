@@ -345,7 +345,7 @@ function loadData() {
             showProduct.innerHTML += `
             <div class="col-12 col-12 col-md-6 col-lg-3 col-xl-3 text-center mt-3">
                 <div class="card text-center"" style="width: 18rem;">
-                    <img src="/${products[i].img}" class="card-img-top" >
+                    <img src="${products[i].img}" class="card-img-top" >
                   <div class="card-body">
                         <h4 class="card-title">${products[i].name}</h4>
                         <h5 class="card-text">${((products[i].price)).replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.')} vnđ</h5>
