@@ -23,8 +23,7 @@ function loadDatas() {
 
     carts.forEach((cart) => {
         var total = (cart.price * cart.count);
-        document.getElementById('nameSP').innerHTML += `<li>${cart.name} x ${cart.count}</li>`;
-        document.getElementById('moneySP').innerHTML += `${total.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.')} VNG <br>`;
+        document.getElementById('result1').innerHTML+= `<label class="col-6" width="50%">* ${cart.name} x ${cart.count}</label>  <label > ${total.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.')} VNG </label> <br>`
         //Tiền dự kiến
         tmp += ((cart.price * cart.count));
         tmpMoney = `${tmp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.')} VNĐ`;
@@ -48,7 +47,6 @@ function loadDatas() {
                 money += ((cart.price * cart.count));
                 totalMoney = `${money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1.')} VNĐ`;
         }
-
         //Tổng tiền
         
     })
