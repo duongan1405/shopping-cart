@@ -53,6 +53,7 @@ function loadDatas() {
     document.getElementById('tmpMoney').innerHTML = tmpMoney;
     document.getElementById('totalMoney').innerHTML = totalMoney;
 }
+//Nút thanh toán kèm gửi mail sau khi thanh toán
 document.querySelector('.btn.btn-warning').onclick = () => {
     document.getElementById('errForm').innerHTML = "";
     document.getElementById('errCheck').innerHTML = "";
@@ -61,6 +62,28 @@ document.querySelector('.btn.btn-warning').onclick = () => {
     }else if(checkBuy1.checked === false && checkBuy2.checked === false) {
         document.getElementById('errCheck').innerHTML ="Phải chọn phương thức thanh toán";
     }else{
-    alert('Thanh toán thành công');
+        var check = confirm('Bạn đã kiểm tra đúng thông tin của mình chưa ?')
+        if(check){
+            accounts.forEach((account) => {
+                if(account.user == sessionStorage.key(0)) {
+                    
+                    Email.send({
+                        Host: "smtp.gmail.com",
+                        Username: "testmailjs1499@gmail.com",
+                        Password: "Testmail14",
+                        To: `${account.mail}`,
+                        From: "testmailjs1499@gmail.com",
+                        Subject: "Hóa đơn đến từ shop aNSport",
+                        Body: "Chúc mừng quý khách đã thanh toán thành công!",
+                    })
+                        .then(function (message) {
+                        alert("Thanh toán thành công")
+                        localStorage.removeItem('listTMP');
+                        localStorage.removeItem('carts');
+                        location.reload();
+                        });
+                };
+            });
+        }; 
     }
 }
